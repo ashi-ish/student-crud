@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.validation.Valid;
 import pro.elevateme.student_crud.model.Student;
 import pro.elevateme.student_crud.service.StudentService;
 
@@ -19,7 +21,7 @@ public class StudentController {
 
     //CREATE
     @PostMapping("/create")
-    public Student createStudent(@RequestBody Student student) {
+    public Student createStudent(@Valid @RequestBody Student student) {
         return studentService.createStudent(student);
     }
 }
